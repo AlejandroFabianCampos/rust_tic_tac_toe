@@ -1,0 +1,21 @@
+[package]
+name = "tic_tac_toe_game"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# remove dynamic_linking before launch https://bevyengine.org/learn/quick-start/getting-started/setup/#enable-fast-compiles-optional
+bevy = { version = "0.13.0", features = ["dynamic_linking"] }
+
+
+# https://bevyengine.org/learn/quick-start/getting-started/setup/#compile-with-performance-optimizations
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
